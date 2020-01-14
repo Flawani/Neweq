@@ -10,7 +10,7 @@ module.exports = {
     usage: "<id | wzmianka>",
     run: async (client, message, args) => {
 
-        if (!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("Przepraszam, nie możesz tego zrobić.");
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Przepraszam, nie możesz tego zrobić.");
 
         var user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
@@ -40,8 +40,8 @@ module.exports = {
             .addField("Liczba ostrzeżeń", warns[user.id].warns)
             .addField("Powód", reasone);
         
-        let warnChannel = message.guild.channels.find(`name`, "❗┆warny ");
-        if (!warnChannel) return message.reply("Nie można znaleźć kanału");
+        let warnChannel = message.guild.channels.find(`name`, "❗┆warny");
+        if (!warnChannel) return message.reaply("Nie można znaleźć kanału");
 
         warnChannel.send(warnEmbed);
 
