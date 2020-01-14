@@ -40,8 +40,8 @@ module.exports = {
             .addField("Liczba ostrzeżeń", warns[user.id].warns)
             .addField("Powód", reasone);
         
-        var warnChannel = message.guild.channels.find(`name`, "❗┆warny ");
-        if (!warnChannel) return message.guild.send("Nie można znaleźć kanału");
+        let warnChannel = message.guild.channels.find(`name`, "❗┆warny ");
+        if (!warnChannel) return message.reply("Nie można znaleźć kanału");
 
         warnChannel.send(warnEmbed);
 
